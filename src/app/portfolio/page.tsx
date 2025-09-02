@@ -251,7 +251,7 @@ function Tile({ item, onOpenImage }: { item: PortfolioItem; onOpenImage: (img: {
   return (
     <div ref={tileRef} className="group relative overflow-hidden rounded-md border bg-card">
       <AspectRatio ratio={4 / 5}>
-        {!loaded && <Skeleton className="absolute inset-0 h-full w-full" />}
+        {!loaded && <Skeleton className="pointer-events-none absolute inset-0 h-full w-full" />}
         {isVideo ? (
           <button
             type="button"
