@@ -13,22 +13,19 @@ export function InlineVideo({ src, alt, className }: InlineVideoProps) {
   const [muted, setMuted] = useState(true)
   const [controls, setControls] = useState(false)
 
+  const unmuteAndPlay = async () => {
+    if (!videoRef.current) return
+    try {
+      videoRef.current.muted = false
+      setMuted(false)
+      videoRef.current.controls = true
+      setControls(true)
+      await videoRef.current.play()
+    } catch {}
+  }
+
   return (
-    <button
-      type="button"
-      className={`absolute inset-0 ${className ?? ""}`}
-      onClick={async () => {
-        if (!videoRef.current) return
-        try {
-          videoRef.current.muted = false
-          setMuted(false)
-          videoRef.current.controls = true
-          setControls(true)
-          await videoRef.current.play()
-        } catch {}
-      }}
-      aria-label={alt ? `${alt} (unmute video)` : "Unmute video"}
-    >
+    <div className={`absolute inset-0 ${className ?? ""}`}>
       <video
         ref={videoRef}
         src={src}
@@ -41,7 +38,19 @@ export function InlineVideo({ src, alt, className }: InlineVideoProps) {
         aria-label={alt}
         className="h-full w-full object-cover"
       />
-    </button>
+
+      {!controls && (
+        <button
+          type="button"
+          className="absolute inset-0"
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            unmuteAndPlay()
+          }}
+          aria-label={alt ? `${alt} (unmute video)` : "Unmute video"}
+        />
+      )}
+    </div>
   )
 }
-
