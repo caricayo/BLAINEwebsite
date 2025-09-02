@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server"
 
+export const revalidate = 60 * 60 // 1 hour
+
 type Resolved = {
   kind: 'video' | 'image'
   poster: string
@@ -49,7 +51,8 @@ export async function GET(req: Request) {
     }
 
     return NextResponse.json(data)
-  } catch {
+  } catch (e) {
     return NextResponse.json({ error: 'exception' }, { status: 500 })
   }
 }
+

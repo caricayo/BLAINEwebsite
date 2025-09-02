@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server"
 
+export const runtime = 'edge'
+
 const ALLOWED_HOSTS = [
   /\.cdninstagram\.com$/i,
   /\.fbcdn\.net$/i,
@@ -46,3 +48,4 @@ export async function GET(req: Request) {
     headers: passthroughHeaders,
   })
 }
+
