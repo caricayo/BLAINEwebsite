@@ -478,7 +478,7 @@ export default function BookingPage() {
           </CardContent>
           <CardFooter className="flex justify-between">
             <Button variant="outline" onClick={prevStep}>Back</Button>
-            <Button onClick={onDeposit} disabled={processing}>{processing ? "Processing…" : "Pay deposit"}</Button>
+            <Button onClick={onDeposit} disabled={processing}>{processing ? "Processing…" : "Send request"}</Button>
           </CardFooter>
         </Card>
       )}
@@ -507,5 +507,6 @@ export default function BookingPage() {
     </div>
   )
 }
+
 
 
