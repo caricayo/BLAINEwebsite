@@ -8,12 +8,7 @@ import { Button } from "@/components/ui/button"
 
 export default function Home() {
   const works = [
-    { id: 1, src: "/globe.svg", alt: "Tattoo 1" },
-    { id: 2, src: "/window.svg", alt: "Tattoo 2" },
-    { id: 3, src: "/file.svg", alt: "Tattoo 3" },
-    { id: 4, src: "/next.svg", alt: "Tattoo 4" },
-    { id: 5, src: "/vercel.svg", alt: "Tattoo 5" },
-    { id: 6, src: "/globe.svg", alt: "Tattoo 6" },
+    { id: 20, src: "/portfolio/20.mp4", alt: "Featured video 20" },
   ]
 
   const quotes = testimonials as Testimonial[]
@@ -45,10 +40,8 @@ export default function Home() {
           {/* Hero content */}
           <div className="relative z-10 mx-auto flex h-full max-w-7xl items-end px-4 pb-10">
             <div className="max-w-2xl" data-reveal>
-              <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Craft on Skin</h1>
-              <p className="mt-3 text-base text-foreground/80 sm:text-lg">
-                Custom tattoos by artists who care about design, healing, and your story.
-              </p>
+              <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Blaine Reum</h1>
+              <p className="mt-3 text-base text-foreground/80 sm:text-lg">Tatto artist who cares about design, healing and your story.</p>
               <div className="mt-6 flex gap-3">
                 <Button asChild>
                   <Link href="/booking">Book Now</Link>
@@ -83,12 +76,15 @@ export default function Home() {
                 className="relative w-full"
                 style={{ aspectRatio: "4 / 5" }}
               >
-                <Image
+                <video
                   src={w.src}
-                  alt={w.alt}
-                  fill
-                  sizes="(min-width: 640px) 33vw, 50vw"
-                  className="object-cover transition duration-300 ease-out group-hover:scale-[1.02]"
+                  muted
+                  playsInline
+                  loop
+                  autoPlay
+                  preload="metadata"
+                  className="h-full w-full object-cover"
+                  aria-label={w.alt}
                 />
               </div>
               <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_0_1px_hsl(var(--color-border))]" />
