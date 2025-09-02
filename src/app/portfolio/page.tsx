@@ -51,7 +51,6 @@ const ITEMS: PortfolioItem[] = (portfolioData as PortfolioItem[])
 export default function PortfolioPage() {
   const [style, setStyle] = useState<Style>("all")
   const [placement, setPlacement] = useState<Placement>("all")
-  const [openVideo, setOpenVideo] = useState<string | null>(null)
   const [openImage, setOpenImage] = useState<{ src: string; alt: string } | null>(null)
   const [logs, setLogs] = useState<MediaLogEntry[]>([])
   const [showLog, setShowLog] = useState(false)
@@ -134,29 +133,13 @@ export default function PortfolioPage() {
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-4">
           {filtered.map((item) => (
             <div key={item.id} data-reveal>
-              <Tile item={item} onOpenVideo={setOpenVideo} onOpenImage={(i) => setOpenImage(i)} />
+              <Tile item={item} onOpenImage={(i) => setOpenImage(i)} />
             </div>
           ))}
         </div>
       </section>
 
-      {/* Video dialog */}
-      <Dialog open={Boolean(openVideo)} onOpenChange={(o) => !o && setOpenVideo(null)}>
-        <DialogContent className="max-w-[90vw] p-0">
-          {openVideo && (
-            <div className="flex max-h-[85vh] w-full items-center justify-center bg-black/80 p-2">
-              <video
-                src={openVideo}
-                controls
-                autoPlay
-                playsInline
-                className="max-h-[80vh] max-w-full rounded-md"
-                onError={() => addLog({ type: 'video', src: openVideo, error: 'failed to load' })}
-              />
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
+      
 
       {/* Image dialog */}
       <Dialog open={Boolean(openImage)} onOpenChange={(o) => !o && setOpenImage(null)}>
@@ -224,7 +207,7 @@ function PlacementCombobox({
 type MediaLogEntry = { type: 'video'; src: string; status?: number; error?: string; time?: number }
 const MediaLogContext = createContext<{ addLog: (e: MediaLogEntry) => void } | null>(null)
 
-function Tile({ item, onOpenVideo, onOpenImage }: { item: PortfolioItem; onOpenVideo: (src: string) => void; onOpenImage: (img: { src: string; alt: string }) => void }) {
+function Tile({ item, onOpenImage }: { item: PortfolioItem; onOpenImage: (img: { src: string; alt: string }) => void }) {
   const [loaded, setLoaded] = useState(false)
   const [poster] = useState<string | null>(item.src ?? null)
   const [reduceMotion, setReduceMotion] = useState(false)
@@ -334,3 +317,8 @@ function Tile({ item, onOpenVideo, onOpenImage }: { item: PortfolioItem; onOpenV
     </div>
   )
 }
+
+
+
+
+

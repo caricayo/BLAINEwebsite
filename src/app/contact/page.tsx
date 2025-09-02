@@ -32,7 +32,7 @@ export default function ContactPage() {
   const form = useForm<Values>({ resolver: zodResolver(schema), defaultValues: { human: false } })
   const [submitted, setSubmitted] = useState(false)
 
-  const onSubmit = async (data: Values) => {
+  const onSubmit = async () => {
     // Normally we would POST to an API route; for now, simulate success.
     await new Promise((r) => setTimeout(r, 600))
     setSubmitted(true)
@@ -218,4 +218,5 @@ export default function ContactPage() {
     </div>
   )
 }
+
 

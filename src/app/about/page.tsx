@@ -1,11 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Button } from "@/components/ui/button"
 import { Instagram, Mail, ShieldCheck, Syringe, CheckCircle2 } from "lucide-react"
 
 export const metadata = {
@@ -100,3 +98,6 @@ export default function AboutPage() {
     </div>
   )
 }
+
+
+
