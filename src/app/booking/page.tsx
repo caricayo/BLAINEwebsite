@@ -455,8 +455,8 @@ export default function BookingPage() {
       {step === 4 && (
         <Card data-reveal>
           <CardHeader>
-            <CardTitle>Review & deposit</CardTitle>
-            <CardDescription>Confirm your details and pay the deposit to secure your spot.</CardDescription>
+            <CardTitle>Review \& send request</CardTitle>
+            <CardDescription>Confirm your details and send your request to the studio.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4 text-sm">
             <div>
@@ -507,6 +507,7 @@ export default function BookingPage() {
     </div>
   )
 }
+
 
 
 
