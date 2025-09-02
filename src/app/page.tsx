@@ -5,6 +5,7 @@ import { site } from "@/config/site"
 import type { Testimonial } from "@/types"
 import testimonials from "../../data/testimonials.json"
 import { Button } from "@/components/ui/button"
+import { InlineVideo } from "@/components/inline-video"
 
 export default function Home() {
   const works = [
@@ -63,32 +64,18 @@ export default function Home() {
             View all →
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-1 sm:gap-4">
           {works.map((w) => (
-            <Link
+            <div
               key={w.id}
-              href="/portfolio"
               className="group relative overflow-hidden rounded-md border bg-card hover-scale"
-              aria-label={`Open ${w.alt}`}
               data-reveal
             >
-              <div
-                className="relative w-full"
-                style={{ aspectRatio: "4 / 5" }}
-              >
-                <video
-                  src={w.src}
-                  muted
-                  playsInline
-                  loop
-                  autoPlay
-                  preload="metadata"
-                  className="h-full w-full object-cover"
-                  aria-label={w.alt}
-                />
+              <div className="relative w-full" style={{ aspectRatio: "4 / 5" }}>
+                <InlineVideo src={w.src} alt={w.alt} />
               </div>
               <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_0_1px_hsl(var(--color-border))]" />
-            </Link>
+            </div>
           ))}
         </div>
       </section>
