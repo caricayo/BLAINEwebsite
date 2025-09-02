@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="border-t bg-background">
       <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 sm:grid-cols-3">
         <div>
-          <div className="text-lg font-semibold">Sacred art tattoo and coffe bar</div>
+          <div className="text-lg font-semibold">Sacred Art Tattoo and Coffee Bar</div>
           <div className="mt-3 text-sm text-foreground/70">
             <Link
               href="https://maps.google.com/?q=1925+Kal%C4%81kaua+Ave+Unit+A,+Honolulu,+HI+96815"
