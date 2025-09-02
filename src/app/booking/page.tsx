@@ -263,17 +263,6 @@ export default function BookingPage() {
                   )}
                 />
 
-                <div className="grid gap-3">
-                  <FormLabel>Reference images (optional)</FormLabel>
-                  <Input
-                    type="file"
-                    multiple
-                    accept="image/*"
-                    onChange={(e) => form.setValue("references", e.target.files)}
-                  />
-                  <FormDescription>Upload 1–3 references (JPG/PNG). Max ~10MB each.</FormDescription>
-                </div>
-
                 <FormField
                   control={form.control}
                   name="notes"
@@ -287,6 +276,10 @@ export default function BookingPage() {
                     </FormItem>
                   )}
                 />
+
+                <p className="text-xs text-foreground/70">
+                  If possible, attach 1–3 reference images in the email after you press “Send request”.
+                </p>
               </form>
             </Form>
           </CardContent>
