@@ -6,6 +6,8 @@ import type { Testimonial } from "@/types"
 import testimonials from "../../data/testimonials.json"
 import { Button } from "@/components/ui/button"
 import { InlineVideo } from "@/components/inline-video"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
 export default function Home() {
   const works = [
@@ -49,16 +51,17 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-1 sm:gap-4">
           {works.map((w) => (
-            <div
-              key={w.id}
-              className="group relative overflow-hidden rounded-md border bg-card hover-scale"
-              data-reveal
-            >
-              <div className="relative w-full" style={{ aspectRatio: "4 / 5" }}>
-                <InlineVideo src={w.src} alt={w.alt} />
-              </div>
-              <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_0_1px_hsl(var(--color-border))]" />
-            </div>
+            <Card key={w.id} className="overflow-hidden hover-scale" data-reveal>
+              <CardContent className="relative p-0">
+                <div className="relative w-full" style={{ aspectRatio: "4 / 5" }}>
+                  <InlineVideo src={w.src} alt={w.alt} />
+                </div>
+                <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_0_1px_hsl(var(--color-border))]" />
+                <div className="pointer-events-none absolute left-2 top-2">
+                  <Badge variant="secondary" className="bg-black/60 text-white backdrop-blur">Featured</Badge>
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </section>

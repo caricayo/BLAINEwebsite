@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useState } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
 type Props = { urls?: string[] }
 
@@ -84,25 +86,38 @@ export function InstagramGrid({ urls }: Props) {
 
 
   return (
-    <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6" data-reveal>
-      {resolvedUrls.map((url, i) => (
-        <a
-          key={i}
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="overflow-hidden rounded-md border bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          aria-label="Open on Instagram"
-        >
-          <AspectRatio ratio={ratioFor(url)}>
-            {posters[url] ? (
-              <img src={posters[url]} alt="Instagram preview" className="h-full w-full object-cover" />
-            ) : (
-              <Skeleton className="h-full w-full" />
-            )}
-          </AspectRatio>
-        </a>
-      ))}
-    </div>
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6" data-reveal>
+        {resolvedUrls.map((url, i) => (
+          <Card key={i} className="overflow-hidden">
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open on Instagram"
+              className="block"
+            >
+              <CardContent className="p-0">
+                <div className="relative">
+                  <AspectRatio ratio={ratioFor(url)}>
+                    {posters[url] ? (
+                      <img src={posters[url]} alt="Instagram preview" className="h-full w-full object-cover" />
+                    ) : (
+                      <Skeleton className="h-full w-full" />
+                    )}
+                  </AspectRatio>
+                  <div className="pointer-events-none absolute left-2 top-2">
+                    <Badge variant="secondary" className="bg-black/60 text-white backdrop-blur">
+                      {url.includes('/reel/') ? 'Reel' : 'Post'}
+                    </Badge>
+                  </div>
+                  <div className="pointer-events-none absolute right-2 top-2">
+                    <span className="inline-block rounded bg-black/50 px-2 py-1 text-[10px] text-white backdrop-blur">Instagram ↗</span>
+                  </div>
+                </div>
+              </CardContent>
+            </a>
+          </Card>
+        ))}
+      </div>
   )
 }
