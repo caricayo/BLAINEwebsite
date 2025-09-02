@@ -67,8 +67,8 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Hygiene & Certifications */}
-      <div className="mt-12 grid gap-8 sm:grid-cols-2">
+      {/* Hygiene */}
+      <div className="mt-12 grid gap-8 sm:grid-cols-1">
         <Card data-reveal>
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg">
@@ -94,64 +94,9 @@ export default function AboutPage() {
           </CardContent>
         </Card>
 
-        <Card data-reveal>
-          <CardHeader>
-            <CardTitle className="text-lg">Certifications</CardTitle>
-            <CardDescription>Verified training and current compliance.</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-3 text-sm text-foreground/80">
-            <div className="flex items-start gap-2">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 text-foreground/70" /> Bloodborne Pathogens (OSHA compliant)
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 text-foreground/70" /> First Aid & CPR (current)
-            </div>
-            <Separator />
-            <div className="flex items-start gap-2">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 text-foreground/70" /> State Tattoo License — WA #123456
-            </div>
-          </CardContent>
-        </Card>
       </div>
 
-      {/* Pricing & Policies */}
-      <div className="mt-12">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Pricing & Policies</CardTitle>
-            <CardDescription>Transparent rates and fair scheduling.</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-5">
-            <div>
-              <div className="text-sm font-medium">Rates</div>
-              <div className="mt-1 text-sm text-foreground/80">$150–$200/hr • Minimum $150</div>
-            </div>
-
-            <Alert>
-              <AlertTitle>Deposit policy</AlertTitle>
-              <AlertDescription className="text-foreground/80">
-                A non‑refundable deposit is required to secure your booking. The deposit is applied
-                to your final session and may be forfeited if you miss or cancel outside the policy
-                window.
-              </AlertDescription>
-            </Alert>
-
-            <Alert>
-              <AlertTitle>Reschedule & cancellation</AlertTitle>
-              <AlertDescription className="text-foreground/80">
-                You may reschedule once with at least 48 hours’ notice. Cancellations or late
-                arrivals beyond 15 minutes may require a new deposit.
-              </AlertDescription>
-            </Alert>
-          </CardContent>
-          <CardFooter>
-            <Button asChild>
-              <Link href="/booking">Book Now</Link>
-            </Button>
-          </CardFooter>
-        </Card>
-      </div>
+      {/* Pricing & Policies temporarily removed */}
     </div>
   )
 }

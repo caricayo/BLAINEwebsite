@@ -61,13 +61,13 @@ export default function ContactPage() {
             <CardContent className="grid gap-3 text-sm">
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-foreground/70" />
-                <Link href="mailto:studio@example.com" className="hover:underline">
-                  studio@example.com
+                <Link href="mailto:blainreum808@gmail.com" className="hover:underline">
+                  blainreum808@gmail.com
                 </Link>
               </div>
               <div className="flex items-center gap-3">
                 <MessageSquareText className="h-4 w-4 text-foreground/70" />
-                <Link href="sms:+15551234567" className="hover:underline">
+                <Link href="sms:+18087440880" className="hover:underline">
                   +1 (555) 123‑4567
                 </Link>
               </div>
@@ -164,13 +164,13 @@ export default function ContactPage() {
           <Card data-reveal>
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2"><MapPin className="h-4 w-4" /> Find us</CardTitle>
-              <CardDescription>123 Ink Lane, Suite 2B, Seattle, WA 98101</CardDescription>
+              <CardDescription>Address: 1925 Kalākaua Ave Unit A, Honolulu, HI 96815</CardDescription>
             </CardHeader>
             <CardContent>
               <AspectRatio ratio={16 / 9}>
                 <iframe
                   title="Studio map"
-                  src="https://www.google.com/maps?q=123%20Ink%20Lane%20Seattle%20WA&output=embed"
+                  src="https://www.google.com/maps?q=1925%20Kal%C4%81kaua%20Ave%20Unit%20A%2C%20Honolulu%2C%20HI%2096815&output=embed"
                   className="h-full w-full rounded-md border"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -182,11 +182,16 @@ export default function ContactPage() {
           <Card data-reveal>
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2"><Clock className="h-4 w-4" /> Hours</CardTitle>
-              <CardDescription>Walk‑ins welcome if available; bookings prioritized.</CardDescription>
+              <CardDescription>Open daily</CardDescription>
             </CardHeader>
             <CardContent className="text-sm text-foreground/80">
-              Tue–Sat: 11:00–7:00
-              <br /> Sun–Mon: Closed
+              Monday 7AM–12AM<br />
+              Tuesday 7AM–12AM<br />
+              Wednesday 7AM–12AM<br />
+              Thursday 7AM–12AM<br />
+              Friday 7AM–12AM<br />
+              Saturday 7AM–12AM<br />
+              Sunday 7AM–12AM
             </CardContent>
             <Separator />
             <CardHeader>
@@ -213,3 +218,4 @@ export default function ContactPage() {
     </div>
   )
 }
+

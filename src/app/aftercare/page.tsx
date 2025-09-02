@@ -49,7 +49,7 @@ export default function AftercarePage() {
             <AlertTitle>When to contact us</AlertTitle>
             <AlertDescription className="text-foreground/80">
               If you notice unusual redness, swelling, rash, or signs of infection, reach out to us
-              at <Link href="mailto:studio@example.com" className="underline">studio@example.com</Link> or SMS <Link href="sms:+15551234567" className="underline">+1 (555) 123‑4567</Link>.
+              at <Link href="mailto:blainreum808@gmail.com" className="underline">blainreum808@gmail.com</Link> or SMS <Link href="sms:+18087440880" className="underline">(808) 744‑0880</Link>.
             </AlertDescription>
           </Alert>
 
@@ -61,4 +61,3 @@ export default function AftercarePage() {
     </div>
   )
 }
-
