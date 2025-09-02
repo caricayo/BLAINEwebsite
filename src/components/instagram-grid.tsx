@@ -96,10 +96,7 @@ export function InstagramGrid({ urls }: Props) {
             <button
               key={i}
               type="button"
-              onClick={() => {
-                if (m) setOpenItem({ url, kind: m.kind, poster: m.poster, src: m.src })
-                else window.open(url, '_blank', 'noopener,noreferrer')
-              }}
+              onClick={() => m && setOpenItem({ url, kind: m.kind, poster: m.poster, src: m.src })}
               className="overflow-hidden rounded-md border bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               aria-label="Open Instagram media"
             >
@@ -118,12 +115,7 @@ export function InstagramGrid({ urls }: Props) {
                     <img src={m.poster} alt="Instagram image" className="h-full w-full object-cover" />
                   )
                 ) : (
-                  <div className="relative h-full w-full">
-                    <Skeleton className="h-full w-full" />
-                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                      <span className="rounded bg-black/70 px-2 py-1 text-xs text-white">Open on Instagram</span>
-                    </div>
-                  </div>
+                  <Skeleton className="h-full w-full" />
                 )}
               </AspectRatio>
             </button>
