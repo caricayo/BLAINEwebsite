@@ -1,103 +1,128 @@
-import Image from "next/image";
+import Link from "next/link"
+import Image from "next/image"
+import { InstagramGrid } from "@/components/instagram-grid"
+import { site } from "@/config/site"
+import type { Testimonial } from "@/types"
+import testimonials from "../../data/testimonials.json"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const works = [
+    { id: 1, src: "/globe.svg", alt: "Tattoo 1" },
+    { id: 2, src: "/window.svg", alt: "Tattoo 2" },
+    { id: 3, src: "/file.svg", alt: "Tattoo 3" },
+    { id: 4, src: "/next.svg", alt: "Tattoo 4" },
+    { id: 5, src: "/vercel.svg", alt: "Tattoo 5" },
+    { id: 6, src: "/globe.svg", alt: "Tattoo 6" },
+  ]
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+  const quotes = testimonials as Testimonial[]
+
+  return (
+    <div className="relative">
+      {/* Full‑bleed hero */}
+      <section className="relative isolate">
+        <div className="relative h-[70vh] min-h-[28rem] w-full overflow-hidden">
+          {/* Optional video hero at /public/hero.mp4; falls back to image overlay */}
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            src="/hero.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-label="Hero video"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent" />
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
             src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+            alt="Featured artwork placeholder"
+            fill
+            priority
+            className="object-cover opacity-10"
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+          {/* Hero content */}
+          <div className="relative z-10 mx-auto flex h-full max-w-7xl items-end px-4 pb-10">
+            <div className="max-w-2xl" data-reveal>
+              <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Craft on Skin</h1>
+              <p className="mt-3 text-base text-foreground/80 sm:text-lg">
+                Custom tattoos by artists who care about design, healing, and your story.
+              </p>
+              <div className="mt-6 flex gap-3">
+                <Button asChild>
+                  <Link href="/booking">Book Now</Link>
+                </Button>
+                <Button asChild variant="outline">
+                  <Link href="/portfolio">View Portfolio</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recent works grid (3x2) */}
+      <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:py-16">
+        <div className="mb-6 flex items-end justify-between">
+          <h2 className="text-xl font-semibold">Recent Works</h2>
+          <Link href="/portfolio" className="text-sm text-foreground/70 hover:text-foreground">
+            View all →
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+          {works.map((w) => (
+            <Link
+              key={w.id}
+              href="/portfolio"
+              className="group relative overflow-hidden rounded-md border bg-card hover-scale"
+              aria-label={`Open ${w.alt}`}
+              data-reveal
+            >
+              <div
+                className="relative w-full"
+                style={{ aspectRatio: "4 / 5" }}
+              >
+                <Image
+                  src={w.src}
+                  alt={w.alt}
+                  fill
+                  sizes="(min-width: 640px) 33vw, 50vw"
+                  className="object-cover transition duration-300 ease-out group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_0_1px_hsl(var(--color-border))]" />
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonial strip */}
+      <section className="border-y bg-muted/30 py-10">
+        <div className="mx-auto grid w-full max-w-7xl gap-6 px-4 sm:grid-cols-3">
+          {quotes.map((q, i) => (
+            <figure key={i} className="rounded-lg border bg-card p-5" data-reveal>
+              <blockquote className="text-sm leading-relaxed text-foreground/80">
+                “{q.quote}”
+              </blockquote>
+              <figcaption className="mt-3 text-xs text-foreground/60">— {q.author}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      {/* Instagram section */}
+      <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:py-16" aria-labelledby="ig-heading">
+        <div className="mb-6 flex items-end justify-between">
+          <h2 id="ig-heading" className="text-xl font-semibold">From Instagram</h2>
+          <Link href={site.instagram.profileUrl} className="text-sm text-foreground/70 hover:text-foreground" target="_blank" rel="noopener noreferrer">
+            See more on Instagram →
+          </Link>
+        </div>
+        <InstagramGrid />
+      </section>
+
+      {/* Global mobile sticky booking bar is in layout */}
     </div>
-  );
+  )
 }
