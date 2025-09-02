@@ -18,28 +18,11 @@ export default function Home() {
     <div className="relative">
       {/* Full‑bleed hero */}
       <section className="relative isolate">
-        <div className="relative h-[70vh] min-h-[28rem] w-full overflow-hidden">
-          {/* Optional video hero at /public/hero.mp4; falls back to image overlay */}
-          <video
-            className="absolute inset-0 h-full w-full object-cover"
-            src="/hero.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            aria-label="Hero video"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent" />
-          <Image
-            src="/globe.svg"
-            alt="Featured artwork placeholder"
-            fill
-            priority
-            className="object-cover opacity-10"
-          />
+        <div className="relative w-full">
+          {/* No background media */}
 
           {/* Hero content */}
-          <div className="relative z-10 mx-auto flex h-full max-w-7xl items-end px-4 pb-10">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:py-16">
             <div className="max-w-2xl" data-reveal>
               <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Blaine Reum</h1>
               <p className="mt-3 text-base text-foreground/80 sm:text-lg">Tatto artist who cares about design, healing and your story.</p>
