@@ -279,9 +279,9 @@ function Tile({ item, onOpenImage }: { item: PortfolioItem; onOpenImage: (img: {
                 preload="metadata"
                 poster={poster ?? undefined}
                 controls={controls}
-                onLoadedData={() => setLoaded(true)}
+                onLoadedMetadata={() => setLoaded(true)}
                 onError={() => logCtx?.addLog({ type: 'video', src: item.videoSrc as string, error: 'tile preview failed' })}
-                className={`h-full w-full object-cover transition duration-300 ease-out ${loaded ? 'opacity-100' : 'opacity-0'}`}
+                className="h-full w-full object-cover"
               />
             ) : (
               <div className={`h-full w-full bg-muted ${loaded ? 'opacity-100' : 'opacity-0'}`} />
