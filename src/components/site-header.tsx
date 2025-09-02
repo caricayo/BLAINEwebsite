@@ -48,7 +48,7 @@ export function SiteHeader() {
               </SheetTrigger>
               <SheetContent side="left" className="w-72">
                 <SheetHeader>
-                  <SheetTitle>Sacred art tattoo and coffe bar</SheetTitle>
+                  <SheetTitle>Sacred Art Tattoo and Coffee Bar</SheetTitle>
                 </SheetHeader>
                 <nav className="mt-4 grid gap-2">
                   {links.map((l) => (
@@ -63,7 +63,7 @@ export function SiteHeader() {
 
           {/* Logo */}
           <Link href="/" className="font-semibold tracking-wide">
-            Sacred art tattoo and coffe bar
+            Sacred Art Tattoo and Coffee Bar
           </Link>
         </div>
 

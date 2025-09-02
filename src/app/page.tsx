@@ -36,7 +36,7 @@ export default function Home() {
           <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:py-16">
             <div className="mx-auto max-w-2xl text-center" data-reveal>
               <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Blaine Reum</h1>
-              <p className="mt-3 text-base text-foreground/80 sm:text-lg">Tatto artist who cares about design, healing and your story.</p>
+              <p className="mt-3 text-base text-foreground/80 sm:text-lg">Tattoo artist who cares about design, healing, and your story.</p>
               <div className="mt-6 flex justify-center gap-3">
                 <Button asChild>
                   <Link href="/booking">Book Now</Link>
