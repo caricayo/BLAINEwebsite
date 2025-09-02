@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { format, addHours } from "date-fns"
-import { createDepositCheckoutSession } from "@/payments/stripe"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
@@ -58,8 +57,7 @@ const bookingSchema = z.object({
   name: z.string().min(2, "Enter your full name"),
   email: z.string().email("Enter a valid email"),
   phone: z.string().optional(),
-  ageConfirm: z.boolean().refine((v) => v === true, { message: "You must confirm you are 18+" }),
-  policiesAgree: z.boolean().refine((v) => v === true, { message: "You must agree to policies" }),
+  ageConfirm: z.boolean().refine((v) => v === true, { message: "You must confirm you are 18+ or have parental consent on arrival" }),
 })
 
 type BookingValues = z.infer<typeof bookingSchema>
@@ -81,7 +79,7 @@ export default function BookingPage() {
     const fieldsByStep: Record<number, (keyof BookingValues)[]> = {
       1: ["style", "colorMode", "placement", "size"],
       2: ["date", "timeWindow"],
-      3: ["name", "email", "ageConfirm", "policiesAgree"],
+      3: ["name", "email", "ageConfirm"],
       4: [],
       5: [],
     }
@@ -95,24 +93,22 @@ export default function BookingPage() {
   const onDeposit = async () => {
     setProcessing(true)
     try {
-      const depositAmount = 10000 // $100.00 in cents
-      const urlBase = (await createDepositCheckoutSession({
-        name: values.name || "",
-        email: values.email || "",
-        amount: depositAmount,
-      })).url
-      const params = new URLSearchParams()
-      params.set("paid", "1")
-      if (values.name) params.set("name", values.name)
-      if (values.email) params.set("email", values.email)
-      params.set("amount", (depositAmount / 100).toFixed(2))
-      if (values.style) params.set("style", values.style)
-      if (values.placement) params.set("placement", values.placement)
-      if (values.size) params.set("size", values.size)
-      if (values.timeWindow) params.set("timeWindow", values.timeWindow)
-      if (values.date) params.set("date", values.date.toISOString())
-      const url = `${urlBase}?${params.toString()}`
-      window.location.assign(url)
+      const toLines = [
+        `Name: ${values.name || ''}`,
+        `Email: ${values.email || ''}`,
+        values.phone ? `Phone: ${values.phone}` : '',
+        `Style: ${values.style || ''}`,
+        `Color mode: ${values.colorMode || ''}`,
+        `Placement: ${values.placement || ''}`,
+        `Size: ${values.size || ''}`,
+        `Preferred date: ${values.date ? format(values.date, 'PPP') : ''}`,
+        `Time window: ${values.timeWindow || ''}`,
+      ].filter(Boolean)
+      const subject = encodeURIComponent('New booking request')
+      const body = encodeURIComponent(toLines.join('\n'))
+      const mailto = `mailto:blainreum808@gmail.com?subject=${subject}&body=${body}`
+      window.location.href = mailto
+      setStep(5)
     } finally {
       setProcessing(false)
     }
@@ -329,7 +325,7 @@ export default function BookingPage() {
                             mode="single"
                             selected={field.value}
                             onSelect={field.onChange}
-                            initialFocus
+                            initialFocus key={field.value ? field.value.toDateString() : "no-date"}
                           />
                         </PopoverContent>
                       </Popover>
@@ -431,14 +427,6 @@ export default function BookingPage() {
                   />
                 </div>
 
-                <Alert>
-                  <AlertTitle>Policies summary</AlertTitle>
-                  <AlertDescription className="text-foreground/80">
-                    $150–$200/hr. $100 non‑refundable deposit applied to your session. Reschedule
-                    with 48h notice. Read full details on <Link href="/policies" className="underline">/policies</Link>.
-                  </AlertDescription>
-                </Alert>
-
                 <div className="flex items-center gap-2">
                   <FormField
                     control={form.control}
@@ -448,23 +436,7 @@ export default function BookingPage() {
                         <FormControl>
                           <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                         </FormControl>
-                        <FormLabel className="font-normal">I am 18+ years old</FormLabel>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <FormField
-                    control={form.control}
-                    name="policiesAgree"
-                    render={({ field }) => (
-                      <FormItem className="flex flex-row items-center gap-2 space-y-0">
-                        <FormControl>
-                          <Checkbox checked={field.value} onCheckedChange={field.onChange} />
-                        </FormControl>
-                        <FormLabel className="font-normal">I agree to the studio policies</FormLabel>
+                        <FormLabel className="font-normal">I am 18+ years old or have parental consent on arrival</FormLabel>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -514,9 +486,9 @@ export default function BookingPage() {
       {step === 5 && (
         <Card data-reveal>
           <CardHeader>
-            <CardTitle>Request received</CardTitle>
+            <CardTitle>Request sent</CardTitle>
             <CardDescription>
-              Your deposit was recorded. We’ll send a confirmation email with final details.
+              We’ve opened your email client with the booking summary. We’ll reply with confirmation and next steps.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4 text-sm">
@@ -535,3 +507,5 @@ export default function BookingPage() {
     </div>
   )
 }
+
+
