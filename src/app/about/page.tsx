@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
@@ -19,13 +18,15 @@ export default function AboutPage() {
       {/* Intro: portrait + bio */}
       <div className="grid gap-8 sm:grid-cols-[320px_1fr] sm:gap-12">
         <div className="relative aspect-[3/4] overflow-hidden rounded-lg border bg-muted" data-reveal>
-          <Image
-            src="/globe.svg"
-            alt="Artist portrait placeholder"
-            fill
-            sizes="320px"
-            className="object-cover opacity-30"
-            priority
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+          <video
+            src="/portfolio/Blaine%20Battle.mp4"
+            muted
+            playsInline
+            autoPlay
+            loop
+            preload="metadata"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
 
@@ -98,6 +99,7 @@ export default function AboutPage() {
     </div>
   )
 }
+
 
 
 
