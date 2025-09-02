@@ -93,20 +93,7 @@ export default function BookingPage() {
   const onDeposit = async () => {
     setProcessing(true)
     try {
-      const toLines = [
-        `Name: ${values.name || ''}`,
-        `Email: ${values.email || ''}`,
-        values.phone ? `Phone: ${values.phone}` : '',
-        `Style: ${values.style || ''}`,
-        `Color mode: ${values.colorMode || ''}`,
-        `Placement: ${values.placement || ''}`,
-        `Size: ${values.size || ''}`,
-        `Preferred date: ${values.date ? format(values.date, 'PPP') : ''}`,
-        `Time window: ${values.timeWindow || ''}`,
-      ].filter(Boolean)
-      const subject = encodeURIComponent('New booking request')
-      const body = encodeURIComponent(toLines.join('\n'))
-      const mailto = `mailto:reum808@gmail.com?subject=${subject}&body=${body}`
+      const mailto = buildMailto()
       window.location.href = mailto
       setStep(5)
     } finally {
@@ -146,6 +133,23 @@ export default function BookingPage() {
     a.download = "blaine-appointment.ics"
     a.click()
     URL.revokeObjectURL(url)
+  }
+
+  const buildMailto = () => {
+    const toLines = [
+      `Name: ${values.name || ''}`,
+      `Email: ${values.email || ''}`,
+      values.phone ? `Phone: ${values.phone}` : '',
+      `Style: ${values.style || ''}`,
+      `Color mode: ${values.colorMode || ''}`,
+      `Placement: ${values.placement || ''}`,
+      `Size: ${values.size || ''}`,
+      `Preferred date: ${values.date ? format(values.date, 'PPP') : ''}`,
+      `Time window: ${values.timeWindow || ''}`,
+    ].filter(Boolean)
+    const subject = encodeURIComponent('New booking request')
+    const body = encodeURIComponent(toLines.join('\n'))
+    return `mailto:reum808@gmail.com?subject=${subject}&body=${body}`
   }
 
   return (
@@ -491,6 +495,7 @@ export default function BookingPage() {
           </CardContent>
           <CardFooter className="flex flex-wrap gap-3">
             <Button onClick={downloadICS} disabled={!eventTimes}>Download .ics</Button>
+            <Button variant="secondary" onClick={() => { const mailto = buildMailto(); window.location.href = mailto }}>Open email again</Button>
             <Button asChild variant="outline">
               <Link href="/">Back to Home</Link>
             </Button>
