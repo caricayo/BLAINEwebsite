@@ -55,12 +55,12 @@ export default function AboutPage() {
               <span className="text-sm">Instagram</span>
             </Link>
             <Link
-              href="mailto:blainreum808@gmail.com"
+              href="mailto:reum808@gmail.com"
               className="inline-flex items-center gap-2 text-foreground/70 hover:text-foreground"
               aria-label="Email"
             >
               <Mail className="h-5 w-5" />
-              <span className="text-sm">blainreum808@gmail.com</span>
+              <span className="text-sm">reum808@gmail.com</span>
             </Link>
           </div>
         </div>

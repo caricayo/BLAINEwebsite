@@ -34,7 +34,7 @@ export function SiteFooter() {
             <Link href="#" aria-label="Facebook" className="text-foreground/70 hover:text-foreground">
               <Facebook className="h-5 w-5" />
             </Link>
-            <Link href="mailto:blainreum808@gmail.com" aria-label="Email" className="text-foreground/70 hover:text-foreground">
+            <Link href="mailto:reum808@gmail.com" aria-label="Email" className="text-foreground/70 hover:text-foreground">
               <Mail className="h-5 w-5" />
             </Link>
           </div>
@@ -68,7 +68,7 @@ export function SiteFooter() {
           <div className="text-sm font-medium">Contact</div>
           <ul className="mt-3 space-y-2 text-sm text-foreground/70">
             <li>
-              <Link href="mailto:blainreum808@gmail.com" className="hover:text-foreground">blainreum808@gmail.com</Link>
+              <Link href="mailto:reum808@gmail.com" className="hover:text-foreground">reum808@gmail.com</Link>
             </li>
             <li>
               <Link href="sms:+18087440880" className="hover:text-foreground">(808) 744-0880</Link>

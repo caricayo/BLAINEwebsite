@@ -106,7 +106,7 @@ export default function BookingPage() {
       ].filter(Boolean)
       const subject = encodeURIComponent('New booking request')
       const body = encodeURIComponent(toLines.join('\n'))
-      const mailto = `mailto:blainreum808@gmail.com?subject=${subject}&body=${body}`
+      const mailto = `mailto:reum808@gmail.com?subject=${subject}&body=${body}`
       window.location.href = mailto
       setStep(5)
     } finally {

@@ -49,7 +49,7 @@ export default function AftercarePage() {
             <AlertTitle>When to contact us</AlertTitle>
             <AlertDescription className="text-foreground/80">
               If you notice unusual redness, swelling, rash, or signs of infection, reach out to us
-              at <Link href="mailto:blainreum808@gmail.com" className="underline">blainreum808@gmail.com</Link> or SMS <Link href="sms:+18087440880" className="underline">(808) 744‑0880</Link>.
+              at <Link href="mailto:reum808@gmail.com" className="underline">reum808@gmail.com</Link> or SMS <Link href="sms:+18087440880" className="underline">(808) 744‑0880</Link>.
             </AlertDescription>
           </Alert>
 

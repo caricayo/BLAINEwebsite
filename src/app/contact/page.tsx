@@ -61,8 +61,8 @@ export default function ContactPage() {
             <CardContent className="grid gap-3 text-sm">
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-foreground/70" />
-                <Link href="mailto:blainreum808@gmail.com" className="hover:underline">
-                  blainreum808@gmail.com
+                <Link href="mailto:reum808@gmail.com" className="hover:underline">
+                  reum808@gmail.com
                 </Link>
               </div>
               <div className="flex items-center gap-3">
