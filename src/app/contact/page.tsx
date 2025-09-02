@@ -196,9 +196,35 @@ export default function ContactPage() {
             <Separator />
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2"><CarFront className="h-4 w-4" /> Parking</CardTitle>
+              <CardDescription>Nearby options within a 5–15 minute walk.</CardDescription>
             </CardHeader>
-            <CardContent className="text-sm text-foreground/80">
-              Street parking on 3rd Ave; paid lot across the street. Please allow extra time during events.
+            <CardContent className="text-sm text-foreground/80 space-y-2">
+              <div>
+                <span className="font-medium">Ala Wai Blvd (street parking)</span>
+                <div>Free street parking along the Ala Wai Canal. Spots fill during peak hours. Always check posted signs for tow‑away times and restrictions.</div>
+              </div>
+              <div>
+                <span className="font-medium">Metered side streets</span>
+                <div>Metered parking on nearby side streets off Kalākaua/Kūhiō (e.g., Niu St, Olohana St, Fernhurst). Read meters for hours, rates, and holidays.</div>
+              </div>
+              <div>
+                <span className="font-medium">Paid garages (closest)</span>
+                <ul className="mt-1 list-inside list-disc space-y-1">
+                  <li>
+                    <Link className="underline" target="_blank" rel="noopener noreferrer" href="https://maps.google.com/?q=International+Market+Place+Parking">International Market Place Parking</Link>
+                    <span className="text-foreground/60"> (approx. 5–10 min walk)</span>
+                  </li>
+                  <li>
+                    <Link className="underline" target="_blank" rel="noopener noreferrer" href="https://maps.google.com/?q=Royal+Hawaiian+Center+Parking">Royal Hawaiian Center Parking</Link>
+                    <span className="text-foreground/60"> (approx. 10–15 min walk)</span>
+                  </li>
+                  <li>
+                    <Link className="underline" target="_blank" rel="noopener noreferrer" href="https://maps.google.com/?q=Fort+DeRussy+Parking">Fort DeRussy / Hale Koa Parking</Link>
+                    <span className="text-foreground/60"> (approx. 10–15 min walk)</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="text-foreground/60">Tip: Ride‑share is recommended during peak hours or when events are nearby.</div>
             </CardContent>
             <Separator />
             <CardHeader>
