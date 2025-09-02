@@ -25,10 +25,10 @@ export default function Home() {
 
           {/* Hero content */}
           <div className="mx-auto max-w-7xl px-4 py-12 sm:py-16">
-            <div className="max-w-2xl" data-reveal>
+            <div className="mx-auto max-w-2xl text-center" data-reveal>
               <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Blaine Reum</h1>
               <p className="mt-3 text-base text-foreground/80 sm:text-lg">Tatto artist who cares about design, healing and your story.</p>
-              <div className="mt-6 flex gap-3">
+              <div className="mt-6 flex justify-center gap-3">
                 <Button asChild>
                   <Link href="/booking">Book Now</Link>
                 </Button>
@@ -51,7 +51,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-1 sm:gap-4">
           {works.map((w) => (
-            <Card key={w.id} className="overflow-hidden hover-scale" data-reveal>
+            <Card key={w.id} className="overflow-hidden hover-scale mx-auto w-full max-w-md sm:max-w-lg md:max-w-xl" data-reveal>
               <CardContent className="relative p-0">
                 <div className="relative w-full" style={{ aspectRatio: "4 / 5" }}>
                   <InlineVideo src={w.src} alt={w.alt} />
