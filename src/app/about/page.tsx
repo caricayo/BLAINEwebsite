@@ -33,10 +33,8 @@ export default function AboutPage() {
 
         <div data-reveal>
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">About Blaine</h1>
-          <p className="mt-3 max-w-prose text-foreground/80">
-            I’m a tattoo artist focused on thoughtful, clean designs that age beautifully. My
-            approach blends graphic composition with sensitivity to skin, placement, and healing —
-            building custom pieces that feel personal and timeless.
+          <p className="mt-3 max-w-prose text-foreground/80 whitespace-pre-line">
+            {`My name is Blaine Reum. I'm 28 years old and from the Northshore of Oahu. I have been in love with tattooing practically most of my life. Any time not spent training jiujitsu, I try to dedicate to the practice of creating art. I picked up my first machine at 16 years old and have been a student of the science ever since. I enjoy tattooing any style of work from fine line, black & grey, realism, traditional American or Japanese—you want it, I'll tattoo it! But if you were to ask my preference, I'll always say 'Anything with bones or blades!'`}
           </p>
 
           <div className="mt-6">
