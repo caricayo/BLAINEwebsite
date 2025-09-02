@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Instagram, Facebook, Mail, MapPin, Clock } from "lucide-react"
+import { Instagram, Facebook, Mail, MapPin, Clock, ExternalLink } from "lucide-react"
 import { site } from "@/config/site"
 
 export function SiteFooter() {
@@ -33,6 +33,9 @@ export function SiteFooter() {
             </Link>
             <Link href="#" aria-label="Facebook" className="text-foreground/70 hover:text-foreground">
               <Facebook className="h-5 w-5" />
+            </Link>
+            <Link href="https://www.yelp.com/portfolio_project/WXBY9zPWIgG-w2Et5Kkisg/-/mIHGaAX5q0lGgbERwB-bWQ" target="_blank" rel="noopener noreferrer" aria-label="Yelp" className="text-foreground/70 hover:text-foreground inline-flex items-center gap-1 text-sm">
+              <ExternalLink className="h-4 w-4" /> Yelp
             </Link>
             <Link href="mailto:reum808@gmail.com" aria-label="Email" className="text-foreground/70 hover:text-foreground">
               <Mail className="h-5 w-5" />
