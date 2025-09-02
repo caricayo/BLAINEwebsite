@@ -4,9 +4,17 @@ import { useState } from "react"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { InlineVideo } from "@/components/inline-video"
 
+type Resolved = {
+  kind: 'video' | 'image'
+  poster: string
+  src?: string
+  width?: number
+  height?: number
+}
+
 export default function DebugIG() {
   const [url, setUrl] = useState("")
-  const [data, setData] = useState<any>(null)
+  const [data, setData] = useState<Resolved | null>(null)
   const [err, setErr] = useState<string | null>(null)
 
   const run = async () => {
@@ -14,11 +22,12 @@ export default function DebugIG() {
     setData(null)
     try {
       const r = await fetch(`/api/ig/resolve?url=${encodeURIComponent(url)}`)
-      const j = await r.json()
-      if (!r.ok) throw new Error(j?.error || r.statusText)
-      setData(j)
-    } catch (e: any) {
-      setErr(e?.message || 'error')
+      const j = (await r.json()) as Resolved | { error?: string }
+      if (!r.ok) throw new Error(('error' in j && j.error) || r.statusText)
+      setData(j as Resolved)
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : 'error'
+      setErr(msg)
     }
   }
 
@@ -47,4 +56,3 @@ export default function DebugIG() {
     </div>
   )
 }
-

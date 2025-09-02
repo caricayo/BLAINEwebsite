@@ -65,16 +65,7 @@ export function InstagramGrid({ urls }: Props) {
     }
   }, [resolvedUrls])
 
-  const toEmbed = (url: string) => {
-    try {
-      const u = new URL(url)
-      // ensure trailing slash before embed
-      if (!u.pathname.endsWith('/')) u.pathname += '/'
-      return `${u.origin}${u.pathname}embed`
-    } catch {
-      return url.endsWith('/') ? `${url}embed` : `${url}/embed`
-    }
-  }
+  // no-op: previous embed approach replaced by local playback via resolver/proxy
 
   if (loading) {
     return (
