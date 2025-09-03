@@ -61,7 +61,7 @@ export async function POST(req: Request) {
       </div>
     `
 
-    await fetch("https://api.resend.com/emails", {
+    const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -75,6 +75,16 @@ export async function POST(req: Request) {
         reply_to: fields.email || undefined,
       }),
     })
+
+    if (!r.ok) {
+      let info = null
+      try { info = await r.json() } catch {}
+      const msg = (info && (info.error?.message || info.message)) || `resend_failed_${r.status}`
+      return new NextResponse(
+        JSON.stringify({ error: msg }),
+        { status: 502, headers: { "content-type": "application/json; charset=utf-8" } }
+      )
+    }
 
     return new NextResponse(JSON.stringify({ ok: true }), {
       headers: { "content-type": "application/json; charset=utf-8" },
