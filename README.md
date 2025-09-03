@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Git Hooks
+
+This repo includes a simple pre-commit check to block non-UTF-8 or mojibake text in `src/app/**/*.tsx` and `data/**/*.json`.
+
+Enable local hooks once per clone:
+
+```
+git config core.hooksPath .githooks
+```
+
+Run manually:
+
+```
+npm run lint:mojibake
+```

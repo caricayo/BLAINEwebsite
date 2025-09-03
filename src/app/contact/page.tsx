@@ -23,7 +23,7 @@ const schema = z.object({
   // Honeypot must be empty
   company: z.string().optional().refine((v) => !v, { message: "" }),
   // Turnstile placeholder: must be checked
-  human: z.boolean().refine((v) => v === true, { message: "Please verify youâ€™re human" }),
+  human: z.boolean().refine((v) => v === true, { message: "Please verify you're human" }),
 })
 
 type Values = z.infer<typeof schema>
@@ -80,14 +80,14 @@ export default function ContactPage() {
           <Card data-reveal>
             <CardHeader>
               <CardTitle className="text-lg">Send a message</CardTitle>
-              <CardDescription>We reply within 1â€“2 business days.</CardDescription>
+              <CardDescription>We reply within 1-2 business days.</CardDescription>
             </CardHeader>
             <CardContent>
               {submitted ? (
                 <Alert>
-                  <AlertTitle>Thanks â€” message received</AlertTitle>
+                  <AlertTitle>Thanks - message received</AlertTitle>
                   <AlertDescription className="text-foreground/80">
-                    Weâ€™ll get back to you at the email provided. For urgent matters, please SMS.
+                    We&apos;ll get back to you at the email provided. For urgent matters, please SMS.
                   </AlertDescription>
                 </Alert>
               ) : (
@@ -141,10 +141,10 @@ export default function ContactPage() {
                     {/* Turnstile placeholder */}
                     <div className="rounded-md border bg-muted/40 p-3 text-xs">
                       <div className="font-medium mb-1 flex items-center gap-2"><Shield className="h-3.5 w-3.5" /> Spam protection</div>
-                      <p className="text-foreground/70">Turnstile placeholder â€” an interactive challenge would appear here in production.</p>
+                      <p className="text-foreground/70">Turnstile placeholder - an interactive challenge would appear here in production.</p>
                       <div className="mt-2 flex items-center gap-2">
                         <input id="human" type="checkbox" onChange={(e) => form.setValue("human", e.target.checked, { shouldValidate: true })} />
-                        <label htmlFor="human">Iâ€™m not a robot (placeholder)</label>
+                        <label htmlFor="human">Im not a robot (placeholder)</label>
                       </div>
                       <FormMessage />
                     </div>
@@ -167,7 +167,7 @@ export default function ContactPage() {
           <Card data-reveal>
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2"><MapPin className="h-4 w-4" /> Find us</CardTitle>
-              <CardDescription>Address: 1925 KalÄkaua Ave Unit A, Honolulu, HI 96815</CardDescription>
+              <CardDescription>Address: 1925 Kalākaua Ave Unit A, Honolulu, HI 96815</CardDescription>
             </CardHeader>
             <CardContent>
               <AspectRatio ratio={16 / 9}>
@@ -188,53 +188,53 @@ export default function ContactPage() {
               <CardDescription>Open daily</CardDescription>
             </CardHeader>
             <CardContent className="text-sm text-foreground/80">
-              Monday 7AMâ€“12AM<br />
-              Tuesday 7AMâ€“12AM<br />
-              Wednesday 7AMâ€“12AM<br />
-              Thursday 7AMâ€“12AM<br />
-              Friday 7AMâ€“12AM<br />
-              Saturday 7AMâ€“12AM<br />
-              Sunday 7AMâ€“12AM
+              Monday 7AM-12AM<br />
+              Tuesday 7AM-12AM<br />
+              Wednesday 7AM-12AM<br />
+              Thursday 7AM-12AM<br />
+              Friday 7AM-12AM<br />
+              Saturday 7AM-12AM<br />
+              Sunday 7AM-12AM
             </CardContent>
             <Separator />
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2"><CarFront className="h-4 w-4" /> Parking</CardTitle>
-              <CardDescription>Nearby options within a 5â€“15 minute walk.</CardDescription>
+              <CardDescription>Nearby options within a 5-15 minute walk.</CardDescription>
             </CardHeader>
             <CardContent className="text-sm text-foreground/80 space-y-2">
               <div>
                 <span className="font-medium">Ala Wai Blvd (street parking)</span>
-                <div>Free street parking along the Ala Wai Canal. Spots fill during peak hours. Always check posted signs for towâ€‘away times and restrictions.</div>
+                <div>Free street parking along the Ala Wai Canal. Spots fill during peak hours. Always check posted signs for tow-away times and restrictions.</div>
               </div>
               <div>
                 <span className="font-medium">Metered side streets</span>
-                <div>Metered parking on nearby side streets off KalÄkaua/KÅ«hiÅ (e.g., Niu St, Olohana St, Fernhurst). Read meters for hours, rates, and holidays.</div>
+                <div>Metered parking on nearby side streets off Kalākaua/Kūhiō (e.g., Niu St, Olohana St, Fernhurst). Read meters for hours, rates, and holidays.</div>
               </div>
               <div>
                 <span className="font-medium">Paid garages (closest)</span>
                 <ul className="mt-1 list-inside list-disc space-y-1">
                   <li>
                     <Link className="underline" target="_blank" rel="noopener noreferrer" href="https://maps.google.com/?q=International+Market+Place+Parking">International Market Place Parking</Link>
-                    <span className="text-foreground/60"> (approx. 5â€“10 min walk)</span>
+                    <span className="text-foreground/60"> (approx. 5-10 min walk)</span>
                   </li>
                   <li>
                     <Link className="underline" target="_blank" rel="noopener noreferrer" href="https://maps.google.com/?q=Royal+Hawaiian+Center+Parking">Royal Hawaiian Center Parking</Link>
-                    <span className="text-foreground/60"> (approx. 10â€“15 min walk)</span>
+                    <span className="text-foreground/60"> (approx. 10-15 min walk)</span>
                   </li>
                   <li>
                     <Link className="underline" target="_blank" rel="noopener noreferrer" href="https://maps.google.com/?q=Fort+DeRussy+Parking">Fort DeRussy / Hale Koa Parking</Link>
-                    <span className="text-foreground/60"> (approx. 10â€“15 min walk)</span>
+                    <span className="text-foreground/60"> (approx. 10-15 min walk)</span>
                   </li>
                 </ul>
               </div>
-              <div className="text-foreground/60">Tip: Rideâ€‘share is recommended during peak hours or when events are nearby.</div>
+              <div className="text-foreground/60">Tip: Ride-share is recommended during peak hours or when events are nearby.</div>
             </CardContent>
             <Separator />
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2"><Accessibility className="h-4 w-4" /> Accessibility</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-foreground/80">
-              Wheelchairâ€‘accessible entrance and restroom. Fragranceâ€‘free request. Let us know if you need any accommodations.
+              Wheelchair-accessible entrance and restroom. Fragrance-free request. Let us know if you need any accommodations.
             </CardContent>
             <CardFooter>
               <Button asChild className="w-full sm:w-auto">

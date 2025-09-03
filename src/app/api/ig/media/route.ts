@@ -47,5 +47,7 @@ export async function GET(req: NextRequest) {
     urls = await fetchFromLocal(limit)
   }
 
-  return NextResponse.json({ urls })
+  return new NextResponse(JSON.stringify({ urls }), {
+    headers: { 'content-type': 'application/json; charset=utf-8' },
+  })
 }

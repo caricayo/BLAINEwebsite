@@ -15,9 +15,13 @@ export async function GET(req: Request) {
       "content-length": res.headers.get("content-length"),
       "cache-control": res.headers.get("cache-control"),
     }
-    return NextResponse.json({ url: target, status: res.status, headers })
+    return new Response(JSON.stringify({ url: target, status: res.status, headers }), {
+      headers: { 'content-type': 'application/json; charset=utf-8' },
+    })
   } catch (e) {
-    return NextResponse.json({ error: (e as Error).message }, { status: 500 })
+    return new Response(JSON.stringify({ error: (e as Error).message }), {
+      status: 500,
+      headers: { 'content-type': 'application/json; charset=utf-8' },
+    })
   }
 }
-
