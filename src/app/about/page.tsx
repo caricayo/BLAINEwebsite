@@ -18,7 +18,7 @@ export default function AboutPage() {
       {/* Intro: portrait + bio */}
       <div className="grid gap-8 sm:grid-cols-[320px_1fr] sm:gap-12">
         <div className="relative aspect-[3/4] overflow-hidden rounded-lg border bg-muted" data-reveal>
-          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+          {/* Removed unused eslint-disable (jsx-a11y/media-has-caption) */}
           <video
             src="/portfolio/Blaine%20Battle.mp4"
             muted
