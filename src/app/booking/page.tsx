@@ -486,7 +486,7 @@ export default function BookingPage() {
           <CardHeader>
             <CardTitle>Request sent</CardTitle>
             <CardDescription>
-              Weâ€™ve opened your email client with the booking summary. Weâ€™ll reply with confirmation and next steps.
+              Thanks—your booking request was sent. We'll reply with confirmation and next steps.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4 text-sm">
