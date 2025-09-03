@@ -255,21 +255,7 @@ function Tile({ item, onOpenImage }: { item: PortfolioItem; onOpenImage: (img: {
       <AspectRatio ratio={4 / 5}>
         {!loaded && <Skeleton className="pointer-events-none absolute inset-0 h-full w-full" />}
         {isVideo ? (
-          <button
-            type="button"
-            className="absolute inset-0"
-            onClick={async () => {
-              if (!videoRef.current) return
-              try {
-                videoRef.current.muted = false
-                setMuted(false)
-                videoRef.current.controls = true
-                setControls(true)
-                await videoRef.current.play()
-              } catch {}
-            }}
-            aria-label={`${item.alt} (unmute video)`}
-          >
+          <>
             {inView ? (
               <video
                 ref={videoRef}
@@ -288,6 +274,25 @@ function Tile({ item, onOpenImage }: { item: PortfolioItem; onOpenImage: (img: {
             ) : (
               <div className={`h-full w-full bg-muted ${loaded ? 'opacity-100' : 'opacity-0'}`} />
             )}
+            {!controls && (
+              <button
+                type="button"
+                className="absolute inset-0"
+                onClick={async () => {
+                  if (!videoRef.current) return
+                  try {
+                    videoRef.current.muted = false
+                    setMuted(false)
+                    videoRef.current.controls = true
+                    setControls(true)
+                    await videoRef.current.play()
+                  } catch {}
+                }}
+                aria-label={`${item.alt} (unmute video)`}
+              >
+                <span className="sr-only">Unmute</span>
+              </button>
+            )}
             {muted && (
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-white shadow-sm backdrop-blur group-hover:scale-105">
@@ -295,7 +300,7 @@ function Tile({ item, onOpenImage }: { item: PortfolioItem; onOpenImage: (img: {
                 </div>
               </div>
             )}
-          </button>
+          </>
         ) : (
           <button
             type="button"
