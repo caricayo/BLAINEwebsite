@@ -90,7 +90,7 @@ export default function Home() {
       </section>
 
       {/* Instagram section */}
-      <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:py-16" aria-labelledby="ig-heading">
+      <section className="hidden mx-auto w-full max-w-7xl px-4 py-12 sm:py-16" aria-labelledby="ig-heading">
         <div className="mb-6 flex items-end justify-between">
           <h2 id="ig-heading" className="text-xl font-semibold">From Instagram</h2>
           <Link href={site.instagram.profileUrl} className="text-sm text-foreground/70 hover:text-foreground" target="_blank" rel="noopener noreferrer">
