@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import { useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
@@ -283,7 +283,7 @@ export default function BookingPage() {
                     <FormItem>
                       <FormLabel>Approximate size</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g., 3 in Ã— 5 in" {...field} />
+                        <Input placeholder="e.g., 3 in -- 5 in" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -304,7 +304,7 @@ export default function BookingPage() {
                   )}
                 />
 
-                <p className="text-xs text-foreground/70">If you have reference images, you can reply to our email with 1–3 images.</p>
+                <p className="text-xs text-foreground/70">If you have reference images, you can reply to our email with 1-3 images.</p>
               </form>
             </Form>
           </CardContent>
@@ -392,7 +392,7 @@ export default function BookingPage() {
         <Card data-reveal>
           <CardHeader>
             <CardTitle>Contact & consent</CardTitle>
-            <CardDescription>We’ll use this to confirm your appointment.</CardDescription>
+            <CardDescription>We-ll use this to confirm your appointment.</CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -462,17 +462,17 @@ export default function BookingPage() {
             )}
             <div>
               <div className="font-medium">Contact</div>
-              <div className="text-foreground/80">{[values.name, values.email, values.phone].filter(Boolean).join(" | ") || "—"}</div>
+              <div className="text-foreground/80">{[values.name, values.email, values.phone].filter(Boolean).join(" | ") || "-"}</div>
             </div>
             <Separator />
             <div>
               <div className="font-medium">Design</div>
-              <div className="text-foreground/80">{[values.style, values.colorMode, values.placement, values.size].filter(Boolean).join(" | ") || "—"}</div>
+              <div className="text-foreground/80">{[values.style, values.colorMode, values.placement, values.size].filter(Boolean).join(" | ") || "-"}</div>
             </div>
             <Separator />
             <div>
               <div className="font-medium">When</div>
-              <div className="text-foreground/80">{values.date ? `${format(values.date, "PPP")} | ${values.timeWindow}` : "—"}</div>
+              <div className="text-foreground/80">{values.date ? `${format(values.date, "PPP")} | ${values.timeWindow}` : "-"}</div>
             </div>
           </CardContent>
           <CardFooter className="flex justify-between gap-3">
@@ -486,7 +486,7 @@ export default function BookingPage() {
           <CardHeader>
             <CardTitle>Request sent</CardTitle>
             <CardDescription>
-              Thanks—your booking request was sent. We&apos;ll reply with confirmation and next steps.
+              Thanks-your booking request was sent. We&apos;ll reply with confirmation and next steps.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4 text-sm">
