@@ -76,6 +76,7 @@ type BookingValues = z.infer<typeof bookingSchema>
 export default function BookingPage() {
   const [step, setStep] = useState<1 | 2 | 3 | 4 | 5>(1)
   const [processing, setProcessing] = useState(false)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
 
   const form = useForm<BookingValues>({
     resolver: zodResolver(bookingSchema),
@@ -104,6 +105,7 @@ export default function BookingPage() {
   const onDeposit = async () => {
     setProcessing(true)
     try {
+      setErrorMsg(null)
       // Try server-side email via Resend first
       const payload = {
         style: values.style,
@@ -125,10 +127,14 @@ export default function BookingPage() {
       if (res && res.ok) {
         setStep(5)
       } else {
-        // Fallback to mailto if API send fails
-        const mailto = buildMailto()
-        window.location.href = mailto
-        setStep(5)
+        let msg = 'Unable to send your request. Please try again.'
+        try {
+          if (res) {
+            const j = await res.json()
+            if (j?.error) msg = String(j.error)
+          }
+        } catch {}
+        setErrorMsg(msg)
       }
     } finally {
       setProcessing(false)
@@ -167,23 +173,6 @@ export default function BookingPage() {
     a.download = "blaine-appointment.ics"
     a.click()
     URL.revokeObjectURL(url)
-  }
-
-  const buildMailto = () => {
-    const toLines = [
-      `Name: ${values.name || ''}`,
-      `Email: ${values.email || ''}`,
-      values.phone ? `Phone: ${values.phone}` : '',
-      `Style: ${values.style || ''}`,
-      `Color mode: ${values.colorMode || ''}`,
-      `Placement: ${values.placement || ''}`,
-      `Size: ${values.size || ''}`,
-      `Preferred date: ${values.date ? format(values.date, 'PPP') : ''}`,
-      `Time window: ${values.timeWindow || ''}`,
-    ].filter(Boolean)
-    const subject = encodeURIComponent('New booking request')
-    const body = encodeURIComponent(toLines.join('\n'))
-    return `mailto:reum808@gmail.com?subject=${subject}&body=${body}`
   }
 
   return (
@@ -465,6 +454,12 @@ export default function BookingPage() {
             <CardDescription>Confirm details, then send your request.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4 text-sm">
+            {errorMsg && (
+              <Alert variant="destructive">
+                <AlertTitle>Send failed</AlertTitle>
+                <AlertDescription>{errorMsg}</AlertDescription>
+              </Alert>
+            )}
             <div>
               <div className="font-medium">Contact</div>
               <div className="text-foreground/80">{[values.name, values.email, values.phone].filter(Boolean).join(" · ") || "—"}</div>
