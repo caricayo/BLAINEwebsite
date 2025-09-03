@@ -326,7 +326,138 @@ export default function BookingPage() {
         </Card>
       )}
 
-      {step === 5 && (
+      
+      {step === 2 && (
+        <Card data-reveal>
+          <CardHeader>
+            <CardTitle>Availability</CardTitle>
+            <CardDescription>Pick a preferred date and time window.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Form {...form}>
+              <form className="grid gap-6">
+                <FormField
+                  control={form.control}
+                  name="date"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col">
+                      <FormLabel>Date</FormLabel>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <FormControl>
+                            <Button variant="outline" className="w-[260px] justify-start font-normal">
+                              {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
+                            </Button>
+                          </FormControl>
+                        </PopoverTrigger>
+                        <PopoverContent className="p-0" align="start">
+                          <Calendar
+                            mode="single"
+                            selected={field.value}
+                            onSelect={field.onChange}
+                            initialFocus
+                            key={field.value ? field.value.toDateString() : "no-date"}
+                          />
+                        </PopoverContent>
+                      </Popover>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="timeWindow"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Time window</FormLabel>
+                      <FormControl>
+                        <RadioGroup className="flex flex-wrap gap-3" value={field.value} onValueChange={field.onChange}>
+                          {([
+                            { v: "morning", l: "Morning" },
+                            { v: "afternoon", l: "Afternoon" },
+                            { v: "evening", l: "Evening" },
+                          ] as const).map((t) => (
+                            <div key={t.v} className="flex items-center gap-2">
+                              <RadioGroupItem id={`tw-${t.v}`} value={t.v} />
+                              <label htmlFor={`tw-${t.v}`} className="text-sm">{t.l}</label>
+                            </div>
+                          ))}
+                        </RadioGroup>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </form>
+            </Form>
+          </CardContent>
+          <CardFooter className="flex justify-between">
+            <Button variant="outline" onClick={prevStep}>Back</Button>
+            <Button onClick={nextStep}>Next</Button>
+          </CardFooter>
+        </Card>
+      )}
+
+      {step === 3 && (
+        <Card data-reveal>
+          <CardHeader>
+            <CardTitle>Contact & consent</CardTitle>
+            <CardDescription>We’ll use this to confirm your appointment.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Form {...form}>
+              <form className="grid gap-6">
+                <FormField control={form.control} name="name" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Full name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Your name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <FormField control={form.control} name="email" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="you@example.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  <FormField control={form.control} name="phone" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Phone (optional)</FormLabel>
+                      <FormControl>
+                        <Input type="tel" placeholder="(808) 123-4567" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                </div>
+
+                <FormField control={form.control} name="ageConfirm" render={({ field }) => (
+                  <FormItem className="flex flex-row items-center gap-2 space-y-0">
+                    <FormControl>
+                      <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                    </FormControl>
+                    <FormLabel className="font-normal">I am 18+ years old or have parental consent on arrival</FormLabel>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+              </form>
+            </Form>
+          </CardContent>
+          <CardFooter className="flex justify-between">
+            <Button variant="outline" onClick={prevStep}>Back</Button>
+            <Button onClick={nextStep}>Next</Button>
+          </CardFooter>
+        </Card>
+      )}
+{step === 5 && (
         <Card data-reveal>
           <CardHeader>
             <CardTitle>Request sent</CardTitle>
@@ -350,6 +481,7 @@ export default function BookingPage() {
     </div>
   )
 }
+
 
 
 
