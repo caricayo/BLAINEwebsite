@@ -3,19 +3,12 @@
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Play, ChevronDown, Check } from "lucide-react"
+import { Play } from "lucide-react"
 
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-} from "@/components/ui/command"
+// Removed Popover/Command imports since PlacementCombobox is currently unused
 import { Skeleton } from "@/components/ui/skeleton"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import type { PortfolioItem, StyleTag, PlacementTag } from "@/types"
@@ -163,48 +156,7 @@ export default function PortfolioPage() {
   )
 }
 
-function PlacementCombobox({
-  value,
-  onChange,
-}: {
-  value: Placement
-  onChange: (v: Placement) => void
-}) {
-  const [open, setOpen] = useState(false)
-  const selected = PLACEMENT_OPTIONS.find((o) => o.value === value)
-
-  return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button variant="outline" role="combobox" aria-expanded={open} className="w-full justify-between sm:w-[220px]">
-          {selected?.label ?? "Placement"}
-          <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
-        <Command>
-          <CommandInput placeholder="Filter placements..." />
-          <CommandEmpty>No placement found.</CommandEmpty>
-          <CommandGroup>
-            {PLACEMENT_OPTIONS.map((opt) => (
-              <CommandItem
-                key={opt.value}
-                value={opt.label}
-                onSelect={() => {
-                  onChange(opt.value)
-                  setOpen(false)
-                }}
-              >
-                <Check className={`mr-2 h-4 w-4 ${opt.value === value ? "opacity-100" : "opacity-0"}`} />
-                {opt.label}
-              </CommandItem>
-            ))}
-          </CommandGroup>
-        </Command>
-      </PopoverContent>
-    </Popover>
-  )
-}
+// PlacementCombobox was unused; removed to satisfy linting and keep bundle lean
 
 type MediaLogEntry = { type: 'video'; src: string; status?: number; error?: string; time?: number }
 const MediaLogContext = createContext<{ addLog: (e: MediaLogEntry) => void } | null>(null)

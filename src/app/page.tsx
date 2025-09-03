@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import { InstagramGrid } from "@/components/instagram-grid"
 import { site } from "@/config/site"
 import type { Testimonial } from "@/types"

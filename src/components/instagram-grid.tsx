@@ -61,8 +61,7 @@ export function InstagramGrid({ urls }: Props) {
     return () => { canceled = true }
   }, [resolvedUrls])
 
-  // kept for compatibility; currently not used since we link out directly
-  const toEmbed = (url: string) => url
+  // Note: we link out directly to Instagram; no embed transformation needed
 
   if (loading) {
     return (
@@ -100,6 +99,7 @@ export function InstagramGrid({ urls }: Props) {
                 <div className="relative">
                   <AspectRatio ratio={ratioFor(url)}>
                     {posters[url] ? (
+                      // eslint-disable-next-line @next/next/no-img-element
                       <img src={posters[url]} alt="Instagram preview" className="h-full w-full object-cover" />
                     ) : (
                       <Skeleton className="h-full w-full" />
