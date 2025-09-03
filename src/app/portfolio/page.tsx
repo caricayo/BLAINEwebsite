@@ -32,6 +32,8 @@ const STYLE_OPTIONS: { value: Style; label: string }[] = [
   { value: "realism", label: "Realism" },
   { value: "script", label: "Script" },
   { value: "geometric", label: "Geometric" },
+  { value: "tribal", label: "Tribal" },
+  { value: "anime", label: "Anime" },
 ]
 
 const PLACEMENT_OPTIONS: { value: Placement; label: string }[] = [

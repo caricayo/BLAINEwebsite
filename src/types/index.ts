@@ -5,6 +5,8 @@ export type StyleTag =
   | "realism"
   | "script"
   | "geometric"
+  | "tribal"
+  | "anime"
 
 export type PlacementTag =
   | "arm"
@@ -34,4 +36,3 @@ export interface Testimonial {
   author: string
   url?: string
 }
-

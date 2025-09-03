@@ -2,7 +2,7 @@
   {
     "id": "1-mp4",
     "alt": "1",
-    "styles": [],
+    "styles": ["black-gray"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/1.mp4"
@@ -10,7 +10,7 @@
   {
     "id": "10-mp4",
     "alt": "10",
-    "styles": [],
+    "styles": ["black-gray"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/10.mp4"
@@ -18,7 +18,7 @@
   {
     "id": "11-mp4",
     "alt": "11",
-    "styles": [],
+    "styles": ["black-gray", "fine-line"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/11.mp4"
@@ -26,7 +26,7 @@
   {
     "id": "12-mp4",
     "alt": "12",
-    "styles": [],
+    "styles": ["color"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/12.mp4"
@@ -34,7 +34,7 @@
   {
     "id": "13-mp4",
     "alt": "13",
-    "styles": [],
+    "styles": ["fine-line"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/13.mp4"
@@ -42,7 +42,7 @@
   {
     "id": "14-mp4",
     "alt": "14",
-    "styles": [],
+    "styles": ["tribal"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/14.mp4"
@@ -50,7 +50,7 @@
   {
     "id": "15-mp4",
     "alt": "15",
-    "styles": [],
+    "styles": ["anime"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/15.mp4"
@@ -58,7 +58,7 @@
   {
     "id": "16-mp4",
     "alt": "16",
-    "styles": [],
+    "styles": ["color"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/16.mp4"
@@ -66,7 +66,7 @@
   {
     "id": "17-mp4",
     "alt": "17",
-    "styles": [],
+    "styles": ["anime"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/17.mp4"
@@ -74,7 +74,7 @@
   {
     "id": "18-mp4",
     "alt": "18",
-    "styles": [],
+    "styles": ["black-gray"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/18.mp4"
@@ -90,7 +90,7 @@
   {
     "id": "20-mp4",
     "alt": "20",
-    "styles": [],
+    "styles": ["black-gray", "color"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/20.mp4"
@@ -98,7 +98,7 @@
   {
     "id": "21-mp4",
     "alt": "21",
-    "styles": [],
+    "styles": ["anime"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/21.mp4"
@@ -106,7 +106,7 @@
   {
     "id": "2-mp4",
     "alt": "2",
-    "styles": [],
+    "styles": ["black-gray", "realism"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/2.mp4"
@@ -114,7 +114,7 @@
   {
     "id": "3-mp4",
     "alt": "3",
-    "styles": [],
+    "styles": ["black-gray", "realism"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/3.mp4"
@@ -122,7 +122,7 @@
   {
     "id": "4-mp4",
     "alt": "4",
-    "styles": [],
+    "styles": ["black-gray", "color"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/4.mp4"
@@ -130,7 +130,7 @@
   {
     "id": "5-mp4",
     "alt": "5",
-    "styles": [],
+    "styles": ["fine-line"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/5.mp4"
@@ -138,7 +138,7 @@
   {
     "id": "6-mp4",
     "alt": "6",
-    "styles": [],
+    "styles": ["color"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/6.mp4"
@@ -146,7 +146,7 @@
   {
     "id": "7-mp4",
     "alt": "7",
-    "styles": [],
+    "styles": ["black-gray"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/7.mp4"
@@ -154,7 +154,7 @@
   {
     "id": "8-mp4",
     "alt": "8",
-    "styles": [],
+    "styles": ["black-gray", "fine-line"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/8.mp4"
@@ -162,7 +162,7 @@
   {
     "id": "9-mp4",
     "alt": "9",
-    "styles": [],
+    "styles": ["black-gray"],
     "placements": [],
     "date": "2025-09-02",
     "videoSrc": "/portfolio/9.mp4"
