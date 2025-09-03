@@ -39,7 +39,9 @@ export async function POST(req: Request) {
     const subjectParts = ["New booking request"]
     if (fields.name) subjectParts.push(`— ${fields.name}`)
     if (fields.date) subjectParts.push(`— ${fields.date}`)
-    const subject = subjectParts.join(" ")
+    let subject = subjectParts.join(" ")
+    // Normalize subject to plain ASCII to avoid any encoding artifacts
+    subject = subject.replace(/[^\x20-\x7E]/g, "-")
 
     const html = `
       <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5;color:#111">
@@ -61,6 +63,10 @@ export async function POST(req: Request) {
       </div>
     `
 
+    const from =
+      process.env.RESEND_FROM || process.env.BOOKING_FROM_EMAIL ||
+      "Tattoos by Blaine <onboarding@resend.dev>"
+
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -68,7 +74,7 @@ export async function POST(req: Request) {
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        from: "Tattoos by Blaine <onboarding@resend.dev>",
+        from,
         to,
         subject,
         html,

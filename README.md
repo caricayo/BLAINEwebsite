@@ -83,6 +83,11 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 
 # Email sending (optional: Resend or Postmark)
 RESEND_API_KEY=re_...
+# Address that receives booking requests
+BOOKING_TO_EMAIL=you@example.com
+# Optional: set a verified sender for Resend (recommended for production)
+# e.g., "Tattoos by Blaine <bookings@yourdomain.com>"
+RESEND_FROM="Tattoos by Blaine <onboarding@resend.dev>"
 POSTMARK_SERVER_TOKEN=...
 
 # Instagram Graph API (optional: if enabling API-based feed)
@@ -93,7 +98,8 @@ IG_ACCESS_TOKEN=...
 Notes:
 
 - Do not commit `.env.local`.
-- This project currently uses mailto for booking emails; switching to Resend/Postmark is optional and requires wiring an API route.
+- Booking requests are sent server-side via Resend when configured; the UI falls back to a mailto link if the API send fails.
+- For Resend production sending, verify your domain and use a sender like `Your Name <bookings@yourdomain.com>` via `RESEND_FROM`. The onboarding domain `<onboarding@resend.dev>` is for testing and may have delivery limits.
 
 ## Deploying
 

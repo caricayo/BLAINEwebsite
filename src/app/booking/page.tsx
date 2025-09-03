@@ -457,7 +457,36 @@ export default function BookingPage() {
           </CardFooter>
         </Card>
       )}
-{step === 5 && (
+
+      {step === 4 && (
+        <Card data-reveal>
+          <CardHeader>
+            <CardTitle>Review & request</CardTitle>
+            <CardDescription>Confirm details, then send your request.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4 text-sm">
+            <div>
+              <div className="font-medium">Contact</div>
+              <div className="text-foreground/80">{[values.name, values.email, values.phone].filter(Boolean).join(" · ") || "—"}</div>
+            </div>
+            <Separator />
+            <div>
+              <div className="font-medium">Design</div>
+              <div className="text-foreground/80">{[values.style, values.colorMode, values.placement, values.size].filter(Boolean).join(" · ") || "—"}</div>
+            </div>
+            <Separator />
+            <div>
+              <div className="font-medium">When</div>
+              <div className="text-foreground/80">{values.date ? `${format(values.date, "PPP")} · ${values.timeWindow}` : "—"}</div>
+            </div>
+          </CardContent>
+          <CardFooter className="flex justify-between gap-3">
+            <Button variant="outline" onClick={prevStep}>Back</Button>
+            <Button onClick={onDeposit} disabled={processing}>Request booking</Button>
+          </CardFooter>
+        </Card>
+      )}
+      {step === 5 && (
         <Card data-reveal>
           <CardHeader>
             <CardTitle>Request sent</CardTitle>
