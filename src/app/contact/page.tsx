@@ -69,11 +69,11 @@ export default function ContactPage() {
                 <MessageSquareText className="h-4 w-4 text-foreground/70" />
                 <Link href="sms:+18087440880" className="hover:underline">(808) 744-0880</Link>
               </div>
-              <div className="pl-7 text-foreground/70">@tattoos.by.blaine</div>
               <div className="flex items-center gap-3">
                 <Instagram className="h-4 w-4 text-foreground/70" />
                 <Link href="https://www.instagram.com/tattoos.by.blaine/" target="_blank" rel="noopener noreferrer" className="hover:underline">Instagram</Link>
               </div>
+              <div className="pl-7 text-foreground/70">@{site.instagram.handle}</div>
             </CardContent>
           </Card>
 
