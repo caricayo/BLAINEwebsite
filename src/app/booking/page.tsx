@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
@@ -155,7 +155,7 @@ export default function BookingPage() {
       `DTSTAMP:${dt(new Date())}`,
       `DTSTART:${dt(eventTimes.start)}`,
       `DTEND:${dt(eventTimes.end)}`,
-      "SUMMARY:Tattoo Appointment — Blaine Studio",
+      "SUMMARY:Tattoo Appointment â€” Blaine Studio",
       `DESCRIPTION:Style: ${values.style || ""}; Placement: ${values.placement || ""}"`,
       "END:VEVENT",
       "END:VCALENDAR",
@@ -189,7 +189,7 @@ export default function BookingPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:py-10">
       <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Book an appointment</h1>
-      <p className="mt-2 text-sm text-foreground/70">Single-artist booking. We’ll confirm by email.</p>
+      <p className="mt-2 text-sm text-foreground/70">Single-artist booking. Weâ€™ll confirm by email.</p>
 
       <Separator className="my-6" />
 
@@ -294,7 +294,7 @@ export default function BookingPage() {
                     <FormItem>
                       <FormLabel>Approximate size</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g., 3 in × 5 in" {...field} />
+                        <Input placeholder="e.g., 3 in Ã— 5 in" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -316,7 +316,7 @@ export default function BookingPage() {
                 />
 
                 <p className="text-xs text-foreground/70">
-                  If possible, attach 1–3 reference images in the email after you press “Send request”.
+                  If possible, attach 1â€“3 reference images in the email after you press â€œSend requestâ€.
                 </p>
               </form>
             </Form>
@@ -411,7 +411,7 @@ export default function BookingPage() {
         <Card data-reveal>
           <CardHeader>
             <CardTitle>Contact & consent</CardTitle>
-            <CardDescription>We’ll use this to confirm your appointment.</CardDescription>
+            <CardDescription>Weâ€™ll use this to confirm your appointment.</CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -492,24 +492,24 @@ export default function BookingPage() {
           <CardContent className="space-y-4 text-sm">
             <div>
               <div className="font-medium">Design</div>
-              <div className="text-foreground/80">{values.style} • {values.colorMode} • {values.placement} • {values.size}</div>
+              <div className="text-foreground/80">{values.style} â€¢ {values.colorMode} â€¢ {values.placement} â€¢ {values.size}</div>
             </div>
             <Separator />
             <div>
               <div className="font-medium">Availability</div>
               <div className="text-foreground/80">
-                {values.date ? format(values.date, "PPP") : "—"} {values.timeWindow ? `• ${values.timeWindow}` : ""}
+                {values.date ? format(values.date, "PPP") : "â€”"} {values.timeWindow ? `â€¢ ${values.timeWindow}` : ""}
               </div>
             </div>
             <Separator />
             <div>
               <div className="font-medium">Contact</div>
-              <div className="text-foreground/80">{values.name} • {values.email}{values.phone ? ` • ${values.phone}` : ""}</div>
+              <div className="text-foreground/80">{values.name} â€¢ {values.email}{values.phone ? ` â€¢ ${values.phone}` : ""}</div>
             </div>
           </CardContent>
           <CardFooter className="flex justify-between">
             <Button variant="outline" onClick={prevStep}>Back</Button>
-            <Button onClick={onDeposit} disabled={processing}>{processing ? "Processing…" : "Send request"}</Button>
+            <Button onClick={onDeposit} disabled={processing}>{processing ? "Processingâ€¦" : "Send request"}</Button>
           </CardFooter>
         </Card>
       )}
@@ -519,7 +519,7 @@ export default function BookingPage() {
           <CardHeader>
             <CardTitle>Request sent</CardTitle>
             <CardDescription>
-              We’ve opened your email client with the booking summary. We’ll reply with confirmation and next steps.
+              Weâ€™ve opened your email client with the booking summary. Weâ€™ll reply with confirmation and next steps.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4 text-sm">
@@ -539,6 +539,7 @@ export default function BookingPage() {
     </div>
   )
 }
+
 
 
 
