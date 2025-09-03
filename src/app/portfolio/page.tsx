@@ -93,16 +93,16 @@ export default function PortfolioPage() {
           onValueChange={(v) => setStyle(v as Style)}
           className="w-full sm:w-auto"
         >
-          <TabsList className="flex w-full flex-wrap justify-start gap-1">
+          <TabsList className="flex w-full flex-nowrap overflow-x-auto justify-start gap-1">
             {STYLE_OPTIONS.map((opt) => (
-              <TabsTrigger key={opt.value} value={opt.value} className="text-xs sm:text-sm">
+              <TabsTrigger key={opt.value} value={opt.value} className="whitespace-nowrap text-xs sm:text-sm">
                 {opt.label}
               </TabsTrigger>
             ))}
           </TabsList>
         </Tabs>
 
-        <PlacementCombobox value={placement} onChange={setPlacement} />
+        {/* Placement filter hidden for now */}
 
         {(style !== "all" || placement !== "all") && (
           <Button variant="outline" onClick={() => { setStyle("all"); setPlacement("all") }}>
