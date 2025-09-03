@@ -43,7 +43,7 @@ export default function ContactPage() {
       <div className="mb-6 flex items-end justify-between gap-3">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Contact & Visit</h1>
-          <p className="mt-1 text-sm text-foreground/70">Questions, bookings, or studio info â€” weâ€™re here to help.</p>
+          <p className="mt-1 text-sm text-foreground/70">Questions, bookings, or studio info - we&apos;re here to help.</p>
         </div>
         <Button asChild className="hidden sm:inline-flex">
           <Link href="/booking">Book Now</Link>
@@ -67,9 +67,12 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center gap-3">
                 <MessageSquareText className="h-4 w-4 text-foreground/70" />
-                <Link href="sms:+18087440880" className="hover:underline">
-                  +1 (555) 123â€‘4567
-                </Link>
+                <Link href="sms:+18087440880" className="hover:underline">(808) 744-0880</Link>
+              </div>
+              <div className="pl-7 text-foreground/70">@tattoos.by.blaine</div>
+              <div className="flex items-center gap-3">
+                <Instagram className="h-4 w-4 text-foreground/70" />
+                <Link href="https://www.instagram.com/tattoos.by.blaine/" target="_blank" rel="noopener noreferrer" className="hover:underline">Instagram</Link>
               </div>
             </CardContent>
           </Card>
@@ -244,6 +247,8 @@ export default function ContactPage() {
     </div>
   )
 }
+
+
 
 
 
