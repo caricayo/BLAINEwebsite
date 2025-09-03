@@ -104,9 +104,32 @@ export default function BookingPage() {
   const onDeposit = async () => {
     setProcessing(true)
     try {
-      const mailto = buildMailto()
-      window.location.href = mailto
-      setStep(5)
+      // Try server-side email via Resend first
+      const payload = {
+        style: values.style,
+        colorMode: values.colorMode,
+        placement: values.placement,
+        size: values.size,
+        date: values.date ? format(values.date, 'yyyy-MM-dd') : '',
+        timeWindow: values.timeWindow,
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+      }
+      const res = await fetch('/api/booking/send', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(payload),
+      }).catch(() => null)
+
+      if (res && res.ok) {
+        setStep(5)
+      } else {
+        // Fallback to mailto if API send fails
+        const mailto = buildMailto()
+        window.location.href = mailto
+        setStep(5)
+      }
     } finally {
       setProcessing(false)
     }
