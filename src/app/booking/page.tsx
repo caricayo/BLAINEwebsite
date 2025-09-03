@@ -27,6 +27,8 @@ const styleOptions = [
   { value: "realism", label: "Realism" },
   { value: "script", label: "Script" },
   { value: "geometric", label: "Geometric" },
+  { value: "tribal", label: "Tribal" },
+  { value: "anime", label: "Anime" },
 ]
 
 const placementOptions = [
@@ -42,7 +44,16 @@ const placementOptions = [
 
 const bookingSchema = z.object({
   // Step 1
-  style: z.enum(["black-gray", "color", "fine-line", "realism", "script", "geometric"] as const),
+  style: z.enum([
+    "black-gray",
+    "color",
+    "fine-line",
+    "realism",
+    "script",
+    "geometric",
+    "tribal",
+    "anime",
+  ] as const),
   colorMode: z.enum(["color", "black-gray"] as const),
   placement: z.enum(["arm", "forearm", "wrist", "chest", "back", "shoulder", "calf", "thigh"] as const),
   size: z.string().min(2, "Enter approximate size"),
