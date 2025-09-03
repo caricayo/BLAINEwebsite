@@ -33,7 +33,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/40 to-transparent" />
 
           {/* Hero content */}
-          <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:py-16">
+          <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-4 py-12 sm:py-16">
             <div className="mx-auto max-w-2xl text-center" data-reveal>
               <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Blaine Reum</h1>
               <p className="mt-3 text-base text-foreground/80 sm:text-lg">Tattoo artist who cares about design, healing, and your story.</p>
