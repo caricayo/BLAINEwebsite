@@ -161,7 +161,7 @@ export default function BookingPage() {
       `DTSTAMP:${dt(new Date())}`,
       `DTSTART:${dt(eventTimes.start)}`,
       `DTEND:${dt(eventTimes.end)}`,
-      "SUMMARY:Tattoo Appointment â€” Blaine Studio",
+      "SUMMARY:Tattoo Appointment - Blaine Studio",
       `DESCRIPTION:Style: ${values.style || ""}; Placement: ${values.placement || ""}"`,
       "END:VEVENT",
       "END:VCALENDAR",
@@ -178,7 +178,7 @@ export default function BookingPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:py-10">
       <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Book an appointment</h1>
-      <p className="mt-2 text-sm text-foreground/70">Single-artist booking. Weâ€™ll confirm by email.</p>
+      <p className="mt-2 text-sm text-foreground/70">Single-artist booking. We'll confirm by email.</p>
 
       <Separator className="my-6" />
 
@@ -462,17 +462,17 @@ export default function BookingPage() {
             )}
             <div>
               <div className="font-medium">Contact</div>
-              <div className="text-foreground/80">{[values.name, values.email, values.phone].filter(Boolean).join(" · ") || "—"}</div>
+              <div className="text-foreground/80">{[values.name, values.email, values.phone].filter(Boolean).join(" | ") || "—"}</div>
             </div>
             <Separator />
             <div>
               <div className="font-medium">Design</div>
-              <div className="text-foreground/80">{[values.style, values.colorMode, values.placement, values.size].filter(Boolean).join(" · ") || "—"}</div>
+              <div className="text-foreground/80">{[values.style, values.colorMode, values.placement, values.size].filter(Boolean).join(" | ") || "—"}</div>
             </div>
             <Separator />
             <div>
               <div className="font-medium">When</div>
-              <div className="text-foreground/80">{values.date ? `${format(values.date, "PPP")} · ${values.timeWindow}` : "—"}</div>
+              <div className="text-foreground/80">{values.date ? `${format(values.date, "PPP")} | ${values.timeWindow}` : "—"}</div>
             </div>
           </CardContent>
           <CardFooter className="flex justify-between gap-3">
@@ -505,6 +505,13 @@ export default function BookingPage() {
     </div>
   )
 }
+
+
+
+
+
+
+
 
 
 
