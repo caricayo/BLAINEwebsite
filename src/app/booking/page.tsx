@@ -155,7 +155,7 @@ export default function BookingPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:py-10">
       <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Book an appointment</h1>
-      <p className="mt-2 text-sm text-foreground/70">Single-artist booking. We’ll confirm by email after deposit.</p>
+      <p className="mt-2 text-sm text-foreground/70">Single-artist booking. We’ll confirm by email.</p>
 
       <Separator className="my-6" />
 
